@@ -18,6 +18,7 @@ class Solution:
         5. 递归+回溯：将回文子串加入方案 → 递归处理剩余部分 → 撤
         """
         n = len(s)
+
         def is_palindrome(s: str):
             # if len(s) == 1:
             #     return True
@@ -30,7 +31,6 @@ class Solution:
                 right -= 1
             return True
 
-
         def backtrack(start_idx: int):
             if start_idx == n:
                 # 已经结束了，保存这个结果。
@@ -39,20 +39,15 @@ class Solution:
             for end_idx in range(start_idx, n):
                 # 遍历每个结束的位置。
 
-                sub_str = s[start_idx: end_idx+1]
+                sub_str = s[start_idx : end_idx + 1]
                 if is_palindrome(sub_str):
                     # 记录该分割
                     current_partition.append(sub_str)
                     # 然后从后面的继续开始
-                    backtrack(end_idx+1)
-                    current_partition.pop() # 去掉
-
-
+                    backtrack(end_idx + 1)
+                    current_partition.pop()  # 去掉
 
         ans = []
         current_partition = []
         backtrack(0)
         return ans
-
-
-

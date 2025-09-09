@@ -19,9 +19,9 @@ class Solution:
         # 1. 找到相遇点
         while True:
             slow = nums[slow]
-            fast = nums[nums[fast]] # 走两个
+            fast = nums[nums[fast]]  # 走两个
             if slow == fast:
-                break # 一定相遇
+                break  # 一定相遇
 
         # 2. 找到环的入口
         slow = 0
@@ -31,12 +31,3 @@ class Solution:
             fast = nums[fast]
 
         return fast
-
-
-
-
-
-
-
-
-

@@ -7,7 +7,6 @@ class Solution:
         思路是这样的， 记录当前的和， 然后试着添加每一个元素，如果达到和退出。大于就减枝、
         """
 
-
         ans = []
         n = len(candidates)
 
@@ -16,7 +15,6 @@ class Solution:
         candidates = sorted(candidates)
 
         def backtrack(start: int, current_sum: int):
-
             if current_sum == target:
                 ans.append(current_result.copy())
                 return
@@ -33,6 +31,3 @@ class Solution:
 
         backtrack(0, 0)
         return ans
-
-
-

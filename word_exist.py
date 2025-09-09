@@ -12,16 +12,15 @@ class Solution:
 
         """
         directions = [
-            (-1, 0), (1, 0),
-            (0, 1), (0, -1),
-
+            (-1, 0),
+            (1, 0),
+            (0, 1),
+            (0, -1),
         ]
 
         m, n = len(board), len(board[0])
 
-
-        def check(i :int, j: int, k: int):
-
+        def check(i: int, j: int, k: int):
             if board[i][j] != word[k]:
                 return False
 
@@ -34,20 +33,17 @@ class Solution:
             for dx, dy in directions:
                 ni = i + dx
                 nj = j + dy
-                if 0<= ni < m and 0 <= nj < n :
+                if 0 <= ni < m and 0 <= nj < n:
                     # 如果满足这个要求的话。
-                    if  (ni ,nj) not in visited:
-                        if check(ni, nj, k+1):
+                    if (ni, nj) not in visited:
+                        if check(ni, nj, k + 1):
                             result = True
                             break
             visited.remove((i, j))
 
             return result
 
-
-
         visited = set()
-
 
         for i in range(m):
             for j in range(n):

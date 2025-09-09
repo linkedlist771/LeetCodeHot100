@@ -4,6 +4,7 @@ class ListNode(object):
         self.val = val
         self.next = next
 
+
 class Solution(object):
     def swapPairs(self, head: ListNode):
         """
@@ -42,8 +43,7 @@ class Solution(object):
         return new_head
 
 
-
-_head = [1,2,3,4]
+_head = [1, 2, 3, 4]
 head = ListNode()
 dummy = head
 for h in _head:
@@ -61,8 +61,3 @@ while h:
     h = h.next
 
 # 输出：[2,1,4,3]
-
-
-
-
-

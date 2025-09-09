@@ -1,5 +1,6 @@
-from typing import Optional, List
 from copy import copy
+from typing import List, Optional
+
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
@@ -37,11 +38,9 @@ class Solution:
         # 这个也是用回溯解决
         ans = []
 
-
-        def backtrack(current_brackets: str, left_bracket_num: int,
-                      right_bracket_number: int):
-
-
+        def backtrack(
+            current_brackets: str, left_bracket_num: int, right_bracket_number: int
+        ):
             if left_bracket_num == right_bracket_number == n:
                 ans.append(copy(current_brackets))
                 return
@@ -52,13 +51,13 @@ class Solution:
                 # 左括号小于有括号数量， 不会发生 =>>>
                 # 加左括号
                 current_brackets += "("
-                backtrack(current_brackets, left_bracket_num+1, right_bracket_number)
+                backtrack(current_brackets, left_bracket_num + 1, right_bracket_number)
                 current_brackets = current_brackets[:-1]  # 回溯：删除最后添加的字符
 
             if left_bracket_num > right_bracket_number:
                 current_brackets += ")"
 
-                backtrack(current_brackets, left_bracket_num, right_bracket_number+1)
+                backtrack(current_brackets, left_bracket_num, right_bracket_number + 1)
                 current_brackets = current_brackets[:-1]  # 回溯：删除最后添加的字符
 
         backtrack("", 0, 0)
